@@ -16,6 +16,8 @@ public class Sample {
         List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
         numbers.parallelStream()
                 .map(e -> transform(e))
+                //.forEach(e -> printIt(e));
                 .forEachOrdered(e -> printIt(e));
+        //For Each Ordered guarantee the source stream should be ordered
     }
 }
