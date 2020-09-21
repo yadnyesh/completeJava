@@ -1,14 +1,16 @@
 package yb.yadnyesh.youtube.venkat;
 
+
 import java.util.Arrays;
 import java.util.List;
+
 
 public class Sample {
     public static void printIt(int number) {
         System.out.println("p: " + number +"--"+ Thread.currentThread());
     }
 
-    public static Integer transform(Integer number) {
+    public static int transform(int number) {
         System.out.println("t: " + number + "--" + Thread.currentThread());
         sleep(1000);
         return number * 2;
@@ -27,7 +29,7 @@ public class Sample {
                 .reduce(0, (total, e) -> add(total,e)));
     }
 
-    private static Integer add(Integer total, Integer e) {
+    public static int add(int total, int e) {
         int result = total + e;
         System.out.println("Total = " + total + " E = " + e + " Result = " + result + "--" + Thread.currentThread());
         return result;
@@ -36,7 +38,7 @@ public class Sample {
     private static boolean sleep(int ms) {
         try {
             Thread.sleep(ms);
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return true;
