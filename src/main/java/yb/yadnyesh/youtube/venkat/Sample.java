@@ -9,7 +9,7 @@ import java.util.List;
 @Slf4j
 public class Sample {
     public static void printIt(int number) {
-        System.out.println("p: " + number +"--"+ Thread.currentThread());
+        log.info("p: " + number +"--"+ Thread.currentThread());
     }
 
     public static int transform(int number) {
@@ -28,7 +28,7 @@ public class Sample {
         List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
 
         log.info(numbers.stream()
-                .reduce(0, (total, e) -> add(total,e)).toString());
+                .reduce(0, Sample::add).toString());
     }
 
     public static int add(int total, int e) {
@@ -41,7 +41,7 @@ public class Sample {
         try {
             Thread.sleep(ms);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
         return true;
     }
