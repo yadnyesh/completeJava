@@ -22,10 +22,15 @@ public class Sample {
 
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-        numbers.parallelStream()
-                .filter(e -> check(e))
-                .forEachOrdered(e -> printIt(e));
-        //For Each Ordered guarantee the source stream should be ordered
+
+        System.out.println(numbers.stream()
+                .reduce(0, (total, e) -> add(total,e)));
+    }
+
+    private static Integer add(Integer total, Integer e) {
+        int result = total + e;
+        System.out.println("Total = " + total + " E = " + e + " Result = " + result + "--" + Thread.currentThread());
+        return result;
     }
 
     private static boolean sleep(int ms) {
