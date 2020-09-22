@@ -1,6 +1,7 @@
 package yb.yadnyesh.youtube.venkat;
 
 import org.junit.Test;
+import yb.yadnyesh.youtube.venkat.Sample;
 
 import static org.junit.Assert.*;
 
