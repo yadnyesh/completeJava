@@ -1,26 +1,27 @@
 package yb.yadnyesh.youtube.venkat;
 
-import org.junit.Test;
-import yb.yadnyesh.youtube.venkat.Sample;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SampleTest {
+
+class SampleTest {
 
     @Test
-    public void testAdd() {
+    void testAdd() {
         Sample sample = new Sample();
         assertEquals(4, sample.add(2,2));
     }
 
     @Test
-    public void testCheck() {
+    void testCheck() {
         Sample sample = new Sample();
         assertTrue(sample.check(1));
     }
 
     @Test
-    public void testTransform() {
+    void testTransform() {
         Sample sample = new Sample();
         assertEquals(4, sample.transform(2));
     }
