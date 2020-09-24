@@ -11,4 +11,16 @@ public class MathHelper {
         }
         return i * factorial(i -1);
     }
+
+    static boolean isPrime(int i) {
+        if ( i == 0 || i == 1) {
+            return false;
+        }
+
+        for(int n = 2; n <= i/2; n++) {
+            if (i % n == 0)
+                return false;
+        }
+        return true;
+    }
 }
