@@ -3,6 +3,7 @@ package yb.yadnyesh.sample;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -12,7 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class MathHelperTest {
 
     @ParameterizedTest(name = "{index} -> {0} should return {1}")
-    @MethodSource("factorialTestSource")
+//    @MethodSource("factorialTestSource")
+    @CsvSource(value = {"0,1","1,1","5,120","6,720"}, delimiter = ',')
     public void factorialTest(int number, int expectedValue) {
         assertEquals(expectedValue, MathHelper.factorial(number));
     }
