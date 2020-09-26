@@ -33,9 +33,14 @@ public class CompletableFutureDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         log.info("Main Thread: " +  Thread.currentThread());
-        create()
-          .thenApply(data -> data * 10)
-          .thenAccept(data -> log.info(data.toString()))
-          .thenRun(() -> log.info("The task was completed successfully"));
+        CompletableFuture<Integer> completableFuture = new CompletableFuture<Integer>();
+        completableFuture
+            .thenApply(data -> data * 2)
+            .thenApply(data -> data + 1)
+            .thenAccept(data -> log.info(data.toString()));
+        sleep(1000);
+        completableFuture.complete(2);
+        sleep(1000);
+
     }
 }
