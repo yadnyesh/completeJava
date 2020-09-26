@@ -23,9 +23,9 @@ public class CompletableFutureDemo {
     private static int compute() {
         try {
             log.info("compute: " + Thread.currentThread());
-            sleep(1000);
+            //sleep(1);
             return 2;
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
@@ -33,16 +33,9 @@ public class CompletableFutureDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         log.info("Main Thread: " +  Thread.currentThread());
-        CompletableFuture<Integer> future = create();
-        sleep(1000);
-        future
-          .thenAccept(data -> printIt(data));
-//        future.thenAccept(data -> log.info(data.toString()))
-//        .thenRun(() -> log.info("This never dies"))
-//        .thenRun(() -> log.info("Really...This never dies"))
-//        .thenRun(() -> log.info("Really.....Really..This never dies"));
-        log.info("got it");
-        log.info(future.getNow(0).toString());
-        log.info("here");
+        create()
+          .thenApply(data -> data * 10)
+          .thenAccept(data -> log.info(data.toString()))
+          .thenRun(() -> log.info("The task was completed successfully"));
     }
 }
