@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ForkJoinPool;
 
 import static java.lang.Thread.sleep;
 
@@ -11,7 +12,8 @@ import static java.lang.Thread.sleep;
 public class CompletableFutureDemo {
 
     public static CompletableFuture<Integer> create() {
-        return CompletableFuture.supplyAsync(()->compute());
+        ForkJoinPool forkJoinPool = new ForkJoinPool(10);
+        return CompletableFuture.supplyAsync(()->compute(), forkJoinPool);
     }
 
     public static void printIt(int i) {
@@ -32,7 +34,7 @@ public class CompletableFutureDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         log.info("Main Thread: " +  Thread.currentThread());
         CompletableFuture<Integer> future = create();
-        sleep(100);
+        sleep(1000);
         future
           .thenAccept(data -> printIt(data));
 //        future.thenAccept(data -> log.info(data.toString()))
