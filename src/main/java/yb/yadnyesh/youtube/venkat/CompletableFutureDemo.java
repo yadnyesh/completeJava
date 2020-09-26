@@ -13,5 +13,9 @@ public class CompletableFutureDemo {
 
     public static void main(String[] args) {
         CompletableFuture<Integer> future = create();
+        future.thenAccept(data -> log.info(data.toString()))
+        .thenRun(() -> log.info("This never dies"))
+        .thenRun(() -> log.info("Really...This never dies"))
+        .thenRun(() -> log.info("Really.....Really..This never dies"));
     }
 }
