@@ -2,3 +2,4 @@
 completejava.iml
 target
 .settings/
+.allure
