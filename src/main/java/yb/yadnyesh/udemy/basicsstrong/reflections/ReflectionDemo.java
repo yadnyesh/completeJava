@@ -1,11 +1,14 @@
 package yb.yadnyesh.udemy.basicsstrong.reflections;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+@Slf4j
 class PrivateClass {
     private PrivateClass() {
-        System.out.println("Myclass object created");
+        log.info("Myclass object created");
     }
 }
 
