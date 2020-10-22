@@ -26,4 +26,12 @@ class SampleTest {
         assertEquals(4, sample.transform(2));
     }
 
+    @Test
+    void testAddFunction() {
+        Sample sample = new Sample();
+        assertEquals(4, Sample.add(2,2));
+    }
+
+
+
 }
