@@ -12,7 +12,6 @@ class PrivateClass {
     }
 }
 
-
 public class ReflectionDemo {
     public static void main(String[] args) throws
             ClassNotFoundException, NoSuchMethodException,
