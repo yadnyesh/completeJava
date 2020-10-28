@@ -8,7 +8,7 @@ public class MethodInfo {
         Entity entity = new Entity(10, "id");
         Class<? extends Entity> entityClass = entity.getClass();
 
-        Method[] declaredMethods = entityClass.getMethods();
+        Method[] declaredMethods = entityClass.getDeclaredMethods();
         Arrays.stream(declaredMethods).forEach(System.out::println);
     }
 }
