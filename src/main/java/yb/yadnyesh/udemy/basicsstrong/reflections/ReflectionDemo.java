@@ -7,8 +7,12 @@ import java.lang.reflect.InvocationTargetException;
 
 @Slf4j
 class PrivateClass {
-    private PrivateClass() {
+    PrivateClass() {
         log.info("Myclass object created");
+    }
+
+    private void myMethod() {
+        log.info("No Args method");
     }
 }
 
