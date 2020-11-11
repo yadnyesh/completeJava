@@ -4,8 +4,9 @@ public class AppSynchronized {
 
     private int count = 0;
 
-    public void increment() {
-
+    //Synchronized method, need to acquire intrinsic lock, that can be held by only 1 thread
+    public synchronized void increment() {
+        count++;
     }
 
 
@@ -19,7 +20,7 @@ public class AppSynchronized {
             @Override
             public void run() {
                 for(int i = 0; i < 10000; i++) {
-                    count++;
+                    increment();
                 }
             }
         });
@@ -28,7 +29,7 @@ public class AppSynchronized {
             @Override
             public void run() {
                 for(int i = 0; i < 10000; i++) {
-                    count++;
+                    increment();
                 }
             }
         });
