@@ -27,3 +27,9 @@ public class GeneralPurpose extends Parent {
     }
 
 }
+
+
+@FunctionalInterface
+interface MyFunctionalInterface {
+    public void method();
+}
