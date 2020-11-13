@@ -24,6 +24,8 @@ public class GeneralPurpose extends Parent {
         generalPurpose.m1();
         generalPurpose.m2();
         System.out.println("Main method");
+        MyFunctionalInterface myFunctionalInterface = () -> System.out.println("SAM Method invoked");
+        myFunctionalInterface.method();
     }
 
 }
