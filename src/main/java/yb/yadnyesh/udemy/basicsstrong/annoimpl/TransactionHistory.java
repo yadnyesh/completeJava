@@ -6,21 +6,21 @@ import yb.yadnyesh.udemy.basicsstrong.annoimpl.annotation.PrimaryKey;
 public class TransactionHistory {
 
     @PrimaryKey
-    long transactionId;
+    private long transactionId;
 
     @Column
-    int accountNumber;
+    private int accountNumber;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String transactionType;
+    private String transactionType;
 
     @Column
-    double amount;
+    private int amount;
 
-    public TransactionHistory(int accountNumber, String name, String transactionType, double amount) {
+    public TransactionHistory(int accountNumber, String name, String transactionType, int amount) {
         this.accountNumber = accountNumber;
         this.name = name;
         this.transactionType = transactionType;
@@ -63,11 +63,11 @@ public class TransactionHistory {
         this.transactionType = transactionType;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

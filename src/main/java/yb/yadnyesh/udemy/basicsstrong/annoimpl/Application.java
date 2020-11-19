@@ -10,6 +10,11 @@ public class Application {
         Hibernate<TransactionHistory> hibernate = Hibernate.getConnection();
 
         hibernate.write(sangeeta);
+        hibernate.write(malvika);
+        hibernate.write(niivii);
+        hibernate.write(megha);
+        TransactionHistory transactionHistory = hibernate.read(TransactionHistory.class, 1L);
+        System.out.println("Read transaction: " + transactionHistory);
 
     }
 }
